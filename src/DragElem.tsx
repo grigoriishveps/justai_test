@@ -4,7 +4,6 @@ import ContElem from "./ContElem";
 import {UserContext} from "./ElemBox";
 
 const DragElem = (props:any)=>{
-    //const {open} = props;
     const {user, board}: {user: {name:{first:string, last:string} }, board: object} = useContext(UserContext);
     const { handleDragOver, handleDrop,handleDragStart} = useContext(FunctionContext)
     const searchText = useContext(SearchContext)
