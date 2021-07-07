@@ -27,8 +27,7 @@ const ContElem = () => {
                 </div>
                 {board.id === 2 && <div className="d-flex justify-content-center align-items-center good-border ml-0 "
                                        style={{width: "50px"}}>
-                    <a href='javascript:void(0)' className="d-inline" onClick={handleClickDelete}>
-                    {/*<a href='about:blank' className="d-inline" onClick={handleClickDelete}>*/}
+                    <a href={undefined} role="button" className="d-inline" onClick={handleClickDelete}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                              className="bi bi-trash" viewBox="0 0 16 16">
                             <path
@@ -40,7 +39,7 @@ const ContElem = () => {
                 </div>}
             </>
         )
-    }, [user, handleClickDelete])
+    }, [user])
 }
 
 export default React.memo(ContElem);
