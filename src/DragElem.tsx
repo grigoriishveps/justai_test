@@ -2,10 +2,10 @@ import React, {useCallback, useContext, useMemo} from "react";
 import {FunctionContext, SearchContext} from "./Table";
 import ContElem from "./ContElem";
 import {UserContext} from "./ElemBox";
+import {Board, User} from "./types";
 
 const DragElem = (props:any)=>{
-    //const {open} = props;
-    const {user, board}: {user: {name:{first:string, last:string} }, board: object} = useContext(UserContext);
+    const {user, board}: {user: User, board: Board} = useContext(UserContext);
     const { handleDragOver, handleDrop,handleDragStart} = useContext(FunctionContext)
     const searchText = useContext(SearchContext)
 
