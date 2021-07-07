@@ -40,7 +40,7 @@ function Table(props: any) {
 
     useEffect(() => {
         const inc = "name,login,registered,id,email,picture"
-        axios.get('https://randomuser.me/api/', {params: {results: 2000, nat: 'us', inc}}).then(response => {
+        axios.get('https://randomuser.me/api/', {params: {results: 5000, nat: 'us', inc}}).then(response => {
             setBoards([{id: 1, panel: splitArr(response.data.results.sort(sortUsers))}, {id: 2, panel: [{title:"", items:[]}]}])
             setAppReady(true);
         })
