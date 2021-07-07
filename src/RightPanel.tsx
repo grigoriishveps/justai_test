@@ -1,24 +1,21 @@
-import ElemBox, {UserContext} from "./ElemBox";
+import ElemBox from "./ElemBox";
 import React from "react";
-import {Panel} from "./types";
+import {Panel, User} from "./types";
 
 const RightPanel = (props:any)=>{
-    const {board} = props;
+    const {board, handleDragOver, currentItem,handleDropBox} = props;
     return(<>
+
         <div
-            className="w-100 d-flex flex-row justify-content-center align-items-center good-border table-head">
-            Избранное
-        </div>
-        <div
-            className={`w-100 h-auto good-border mt-0 flex-grow-1 pb-4 ${(props.currentItem) ? "bg-right" : ""} `}
+            className={`w-100 h-auto good-border mt-0 flex-grow-1 pb-4 ${(currentItem) ? "bg-right" : ""} `}
             key='box_container_2'
-            onDragOver={props.handleDragOver}
+            onDragOver={handleDragOver}
             onDrop={(e) => {
-                props.handleDropBox(e, board)
+                handleDropBox(e, board)
             }}
         >
             {
-                board.panel.map(({items, title}:{items:Panel[], title:number}) => {
+                board.panel.map(({items, title}:{items:User[], title:string}) => {
                     return <ElemBox
                         key={`panel${title}`}
                         title={title}

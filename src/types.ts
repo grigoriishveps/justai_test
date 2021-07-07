@@ -4,7 +4,8 @@ interface User{
     picture: {thumbnail:string},
     name:{first:string, last:string},
     registered:{age:number, date: Date},
-    email: string
+    email: string,
+    login:{uuid:string}
 }
 
 interface Panel{

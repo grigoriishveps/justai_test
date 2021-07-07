@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
 import DragElem from "./DragElem";
-import {Board, User} from "./types";
+import {Board, Panel, User} from "./types";
 
 export const UserContext = React.createContext<{user:User, board:Board}>(
     {user: {
             picture: {thumbnail:''},
             name:{first:'', last:''},
-            registered:{age:1, date:new Date},
-            email:""
+            registered:{age:1, date:new Date()},
+            email:"",
+            login:{uuid:""}
         }, board:{id:0, panel:[{title:"", items:[]}]
     }});
 
 
-function ElemBox({users, board, title}: any) {
+function ElemBox({users, board, title}: {users:User[],board:Board,title:string}) {
 
-    // const [open, setOpen] = useState(false)
     const [open, setOpen] = useState(title==="")
     const empty = users.length === 0;
     return (<>
@@ -27,7 +27,7 @@ function ElemBox({users, board, title}: any) {
         }
         <div className={`${(open && !empty) ? '' : 'd-none'} elem-box`}>
             {
-                users.map((user: any) => {
+                users.map((user: User) => {
                     return<UserContext.Provider value={{board, user}} key={user.login.uuid}> <DragElem/></UserContext.Provider>
                 })
             }
